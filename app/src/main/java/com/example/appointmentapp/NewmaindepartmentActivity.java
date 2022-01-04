@@ -3,11 +3,8 @@ package com.example.appointmentapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioGroup;
-import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -20,8 +17,6 @@ import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.JsonRequest;
-
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,57 +24,33 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class NewCustomerActivity extends AppCompatActivity {
-EditText cust_full_name,cust_contacts,Txtemail,TxtPassword;
-Spinner SpWard;
-RadioGroup GPgender;
-Button btnReg;
+public class NewmaindepartmentActivity extends AppCompatActivity {
+    EditText Txtmaindeptname, TxtLocation; Button BtnMaindeptsave;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_customer);
+        setContentView(R.layout.activity_newmaindepartment);
+        Txtmaindeptname =findViewById(R.id.Txtmaindeptname);
+        BtnMaindeptsave=findViewById(R.id.BtnMaindeptsave);
+        TxtLocation=findViewById(R.id.TxtLocation);
 
-        cust_full_name=findViewById(R.id.cust_full_name);
-        cust_contacts=findViewById(R.id.cust_contacts);
-        Txtemail=findViewById(R.id.Txtemail);
-        TxtPassword=findViewById(R.id.TxtPassword);
-        SpWard=findViewById(R.id.SpWard);
-        GPgender=findViewById(R.id.GPgender);
-
-        btnReg=findViewById(R.id.btnReg);
-
-        btnReg.setOnClickListener(v -> {
-            try {
-                register();
+        BtnMaindeptsave.setOnClickListener(v ->{
+           try {
+               newmaindepart();
             } catch (JSONException e) {
-                e.printStackTrace();
+               e.printStackTrace();
             }
         });
+
     }
-
-    public void register() throws JSONException {
+    public void newmaindepart() throws JSONException
+    {
         JSONObject jsonObject=new JSONObject();
-
-        jsonObject.put("custEmail","jesse");
-        jsonObject.put("custFullName","peter");
-        jsonObject.put("custPass","null");
-        jsonObject.put("custWard","soy");
-        jsonObject.put("custID","1");
-        jsonObject.put("custContacts","099786767673");
-        jsonObject.put("gender","male");
-
-/*
-* {
-"custEmail": "jesse",
-    "custFullName": "peter",
-    "custPass": "null",
-    "custWard": "soy",
-    "custID": "1",
-    "custContacts": "099786767673",
-    "gender": "male"
-}
-* */        JsonObjectRequest request = new JsonObjectRequest
-                (Request.Method.POST, URLS.REGISTER, jsonObject, response -> {
+        jsonObject.put("maindeptname","Finance and Economic Planning");
+        jsonObject.put("maindeptlocation","Finance and Economic Planning");
+        JsonObjectRequest request = new JsonObjectRequest
+                (Request.Method.POST, URLS.NewMAindepartment, jsonObject, response -> {
 
                     try {
 
