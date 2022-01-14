@@ -105,7 +105,11 @@
         android:text="Ward"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5" />
-
+<!--    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:orientation="vertical"-->
+<!--        android:padding="10dp">-->
     <RadioGroup
         android:id="@+id/GPgender"
         android:layout_width="220dp"
@@ -137,7 +141,9 @@
         android:layout_width="206dp"
         android:layout_height="24dp"
         tools:layout_editor_absoluteX="133dp"
-        tools:layout_editor_absoluteY="485dp" />
+        tools:layout_editor_absoluteY="485dp"
+        tools:ignore="MissingConstraints" />
+<!--    </LinearLayout>-->
 
     <Button
         android:id="@+id/btnReg"
